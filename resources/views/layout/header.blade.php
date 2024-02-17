@@ -10,7 +10,7 @@
           <span class=""> </span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+          {{-- <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
             <ul class="navbar-nav ">
               <li class="nav-item active">
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
@@ -28,7 +28,7 @@
                 <a class="nav-link" href="contact.html">Contact Us</a>
               </li>
             </ul>
-          </div>
+          </div> --}}
           {{-- <div class="quote_btn-container">
             <a href="">
               <span>

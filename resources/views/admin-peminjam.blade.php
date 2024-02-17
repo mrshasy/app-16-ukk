@@ -11,7 +11,7 @@
             <div class="col-lg-12 mt-2" style="min-height: 480px">
               <div class="card">
                 <div class="card-header">
-                  Data Buku
+                  Data Peminjaman Buku
                 </div>
                 <div class="card-body">
                   <div class="row">
@@ -24,14 +24,16 @@
                       <table class="table table-bordered table striped">
                         <tr>
                           <th>No</th>
+                          <th>Nama</th>
                           <th>Nama Buku</th>
-                          <th>Penerbit</th>
+                          <th>Tgl Pinjam</th>
+                          <th>Tgl Kembali</th>
                           <th>Aksi</th>
                         </tr>
                         <tr>
                           <td>1</td>
-                          <td>Off The Record</td>
-                          <td>Ria SW</td>
+                          <td>ajsdajw</td>
+                          <td>askdbjawkj@gmail.com</td>
                         </tr>
                       </table>
                     </div>

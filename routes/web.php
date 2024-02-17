@@ -28,3 +28,19 @@ Route::get('/regis', function () {
 Route::get('/admin', function () {
     return view('admin');
 });
+
+Route::get('/petugas', function () {
+    return view('petugas');
+});
+
+Route::get('/peminjam', function () {
+    return view('peminjam');
+});
+
+Route::get('/admin/petugas', function () {
+    return view('admin-petugas');
+});
+
+Route::get('/admin/peminjam', function () {
+    return view('admin-peminjam');
+});
