@@ -30,6 +30,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/books.create', function () {
+    return view('books.create');
+});
+
 Route::get('/login', function () {
     return view('login');
 });
