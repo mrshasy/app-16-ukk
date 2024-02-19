@@ -15,5 +15,6 @@ class Book extends Model
         'penerbit',
         'deskripsi',
         'tahun_terbit',
+        'image',
     ];
 }

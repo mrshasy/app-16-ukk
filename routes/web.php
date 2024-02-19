@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -25,6 +26,11 @@ Route::post('/login', [LoginController::class, 'loginAction']);
 Route::get('/admin', [DashboardController::class, 'admin'])->middleware('auth');
 Route::get('/petugas', [DashboardController::class, 'petugas'])->middleware('auth');
 Route::get('/peminjam', [DashboardController::class, 'peminjam'])->middleware('auth');
+
+// Route::resource('/books', [BookController::class]);
+Route::get('/books', [BookController::class, 'index']);
+Route::post('/books', [BookController::class, 'store']);
+Route::delete('/books', [BookController::class, 'destroy']);
 
 Route::get('/', function () {
     return view('welcome');

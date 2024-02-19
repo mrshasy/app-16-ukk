@@ -30,8 +30,12 @@
                         <thead>
                         <tr>
                           <th>No</th>
-                          <th>Nama Buku</th>
+                          <th>Judul Buku</th>
+                          <th>Penulis</th>
                           <th>Penerbit</th>
+                          <th>Deskripsi</th>
+                          <th>Tahun Terbit</th>
+                          <th>Image</th>
                           <th>Aksi</th>
                         </tr>
                       </thead>
@@ -39,9 +43,22 @@
                         @forelse ($books as $book)
                         <tr>
                           <td>1</td>
-                          <td class="text-center"></td>
+                          {{-- <td class="text-center"></td> --}}
                           <td>{{ $book->judul }}</td>
-                          <td>Ria SW</td>
+                          <td>{{ $book->penulis }}</td>
+                          <td>{{ $book->penerbit }}</td>
+                          <td>{{ $book->deskripsi }}</td>
+                          <td>{{ $book->tahun_terbit }}</td>
+                        {{-- <td class="text-center">
+                            <img src="{{ storage('/storage'.$post->image) }}" class="rounded" style="width: 100px">
+                        </td> --}}
+                        <td class="text-center">
+                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ url('books.destroy', $book->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                            </form>
+                        </td>
                         </tr>
                         @empty
                         <div class="alert alert-danger">

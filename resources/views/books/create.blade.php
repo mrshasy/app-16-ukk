@@ -15,7 +15,7 @@
                         Tambah Data Buku
                     </div>
                     <div class="card-body">
-                        <form action="{{ url('admin') }}" method="post">
+                        <form action="/books" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <label for="form"><b>Judul Buku :</b></label>
@@ -31,7 +31,7 @@
                             </div>
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <label for="exampleFormControlTextarea1" class="form-label"><b>Deskripsi :</b></label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="deskripsi"></textarea>
                             </div>
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <label for="form"><b>Tahun Terbit :</b></label>
@@ -39,12 +39,13 @@
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Default file input example</label>
-                                <input class="form-control" type="file" id="formFile">
+                                <input class="form-control" type="file" id="formFile" name="image">
                             </div>
 
-                            <div class="d-flex justify-content-start  mb-3 ">
+                            
                                 <button type="submit" class="btn btn-outline-primary btn-sm">Tambah</button>
-                              </div>
+                                <button type="reset" class="btn btn-outline-warning btn-sm">Reset</button>
+                            
                         </form>
                     </div>
                 </div>
