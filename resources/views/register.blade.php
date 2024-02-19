@@ -16,34 +16,35 @@
                     <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
       
                       <p class="text-center h4 fw-bold mb-2">Register</p>
-                      <form class="">
+                      <form method="post" action="/register/add">
+                        @csrf
                         <div class="form-group position-relative has-icon-left mb-4">
                             <label for="form"><b>Email :</b></label>
-                            <input type="text" class="form-control form-control-xl" placeholder="Email">
+                            <input type="text" class="form-control form-control-xl @error('email') is-invalid @enderror" placeholder="Email" name="email">
                         </div>
       
                         <div class="form-group position-relative has-icon-left mb-4">
                             <label for="form"><b>Nama :</b></label>
-                            <input type="text" class="form-control form-control-xl" placeholder="Nama">
+                            <input type="text" class="form-control form-control-xl @error('name') is-invalid @enderror" placeholder="Nama" name="name">
                         </div>
       
                         <div class="form-group position-relative has-icon-left mb-4">
                             <label for="form"><b>Password :</b></label>
-                            <input type="text" class="form-control form-control-xl" placeholder="Password">
+                            <input type="password" class="form-control form-control-xl @error('password') is-invalid @enderror" placeholder="Password" name="password">
                         </div>
 
                         <div class="form-group position-relative has-icon-left mb-4">
                             <label for="form"><b>Telepon :</b></label>
-                            <input type="text" class="form-control form-control-xl" placeholder="Telepon">
+                            <input type="text" class="form-control form-control-xl @error('telepon') is-invalid @enderror" placeholder="Telepon" name="telepon">
                         </div>
 
                         <div class="form-group position-relative has-icon-left mb-4">
                             <label for="form"><b>Alamat :</b></label>
-                            <input type="text" class="form-control form-control-xl" placeholder="Alamat">
+                            <input type="text" class="form-control form-control-xl @error('alamat') is-invalid @enderror" placeholder="Alamat" name="alamat">
                         </div>
       
                         <div class="d-flex justify-content-start  mb-3 ">
-                          <button type="button" class="btn btn-outline-primary btn-sm">Register</button>
+                          <button type="submit" class="btn btn-outline-primary btn-sm">Register</button>
                         </div>
       
                       </form>

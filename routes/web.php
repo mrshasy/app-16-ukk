@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +15,16 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/register', [RegisterController::class, 'register']);
+Route::post('/register/add', [RegisterController::class, 'registerAction']);
+
+Route::get('/login', [LoginController::class, 'login']);
+Route::post('/login', [LoginController::class, 'loginAction']);
+
+Route::get('/admin', [DashboardController::class, 'admin'])->middleware('auth');
+Route::get('/petugas', [DashboardController::class, 'petugas'])->middleware('auth');
+Route::get('/peminjam', [DashboardController::class, 'peminjam'])->middleware('auth');
 
 Route::get('/', function () {
     return view('welcome');

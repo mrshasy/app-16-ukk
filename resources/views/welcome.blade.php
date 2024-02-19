@@ -17,10 +17,10 @@
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam itaque ratione amet veniam, magnam, accusantium repellat corporis eveniet unde maxime accusamus delectus cupiditate quibusdam dicta ullam. Illum ratione labore blanditiis perspiciatis nesciunt nulla nam, veritatis ullam esse, architecto, magni inventore.
                   </p>
                   <div class="btn-box">
-                    <a href="" class="btn1">
+                    <a href="{{ url('/login') }}" class="btn1">
                       Log In
                     </a>
-                    <a href="" class="btn2">
+                    <a href="{{ url('/register') }}" class="btn2">
                       Register
                     </a>
                   </div>

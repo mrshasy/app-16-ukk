@@ -15,9 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('telepon');
+            $table->text('alamat');
             $table->timestamp('email_verified_at')->nullable();
+            $table->enum('role', ['admin', 'petugas', 'peminjam'])->default('peminjam');
             $table->string('password');
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

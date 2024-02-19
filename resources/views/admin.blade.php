@@ -16,7 +16,7 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <a href="" class="btn btn-primary">Tambah Data</a>
+                      <a href="{{ url('books.create') }}" class="btn btn-primary">Tambah Data</a>
                     </div>
                   </div>
                   <div class="row mt-3">
