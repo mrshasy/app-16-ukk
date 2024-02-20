@@ -29,40 +29,45 @@
                       <table class="table table-bordered table striped">
                         <thead>
                         <tr>
-                          <th>No</th>
-                          <th>Judul Buku</th>
-                          <th>Penulis</th>
-                          <th>Penerbit</th>
-                          <th>Deskripsi</th>
-                          <th>Tahun Terbit</th>
-                          <th>Image</th>
-                          <th>Aksi</th>
+                          <th scope="col">No</th>
+                          <th scope="col">Judul Buku</th>
+                          <th scope="col">Penulis</th>
+                          <th scope="col">Penerbit</th>
+                          <th scope="col">Deskripsi</th>
+                          <th scope="col">Tahun Terbit</th>
+                          <th scope="col">Image</th>
+                          <th scope="col">Aksi</th>
                         </tr>
                       </thead>
                       <tbody>
+                        <?php $i = $books->firstItem(); ?>
                         @forelse ($books as $book)
                         <tr>
-                          <td>1</td>
+                          <td>{{ $i }}</td>
                           {{-- <td class="text-center"></td> --}}
                           <td>{{ $book->judul }}</td>
                           <td>{{ $book->penulis }}</td>
                           <td>{{ $book->penerbit }}</td>
                           <td>{{ $book->deskripsi }}</td>
                           <td>{{ $book->tahun_terbit }}</td>
-                        {{-- <td class="text-center">
-                            <img src="{{ storage('/storage'.$post->image) }}" class="rounded" style="width: 100px">
-                        </td> --}}
+                        <td class="text-center">
+                            <img src="{{ url('/storage/storage/'. $book->image) }}" class="rounded" style="width: 100px">
+                            {{-- <img src="assets/images/otr1.jpg" class="w-20 rounded" style="height: 20rem" > --}}
+                        </td>
                         <td class="text-center">
                             <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('books.destroy', $book->id) }}" method="post">
+                              {{-- <a href="{{ url('/books/show/'.$book->id) }}" class="btn btn-sm btn-primary">Show</a> --}}
+                              <a href="{{ url('/books/edit/'.$book->id) }}" class="btn btn-sm btn-secondary">Edit</a>
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                             </form>
                         </td>
                         </tr>
+                        <?php $i++ ?>
                         @empty
                         <div class="alert alert-danger">
-                          Data Post belum Tersedia.
+                          Data Buku belum Tersedia.
                       </div>
                         @endforelse
                       </tbody>

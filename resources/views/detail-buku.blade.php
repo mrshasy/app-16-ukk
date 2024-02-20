@@ -15,12 +15,9 @@
               </div>
               <div class="card-border-0 shadow-sm rounded">
                 <div class="card-body">
-                    <img src="{{ public('storage/storage'.$post->image) }}" class="w-50 rounded">
-                    <hr>
-                    <h3>{{ $books->judul }}</h3>
-                    <h5>{{ $books->penulis }}</h5>
-                    <h5>{{ $books->penerbit }}</h5>
-                    <p>{{ $books->deskripsi }}</p>
+                    <img src="assets/images/otr1.jpg" class="w-20 rounded" style="height: 20rem">
+                    <h3>Off The Record</h3>
+                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
               </div>
             </div>

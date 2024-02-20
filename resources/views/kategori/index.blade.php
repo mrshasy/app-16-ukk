@@ -29,29 +29,31 @@
                       <table class="table table-bordered table striped">
                         <thead>
                         <tr>
-                          <th>No</th>
-                          <th>Kategori Buku</th>
-                          <th>Aksi</th>
+                          <th scope="col">No</th>
+                          <th scope="col">Kategori Buku</th>
+                          <th scope="col">Aksi</th>
                         </tr>
                       </thead>
                       <tbody>
+                        <?php $i = $kategoris->firstItem(); ?>
                         @forelse ($kategoris as $kategori)
                         <tr>
-                          <td>1</td>
+                          <td>{{ $i }}</td>
                           {{-- <td class="text-center"></td> --}}
                           <td>{{ $kategori->nama_kategori }}</td>
                         {{-- <td class="text-center">
-                            <img src="{{ storage('/storage'.$post->image) }}" class="rounded" style="width: 100px">
+                            <img src="{{ Storage::url('/public/storage'.$post->image) }}" class="rounded" style="width: 100px">
                         </td> --}}
                         <td class="text-center">
                             <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('kategoris.destroy', ['id_kategori' => $kategori->id_kategori]) }}" method="post">
-                            <a href="{{ url('kategori.edit', $kategori->id_kategori) }}" class="btn btn-sm btn-secondary">Edit</a>
+                            <a href="{{ url('/kategoris/edit/'.$kategori->id_kategori) }}" class="btn btn-sm btn-secondary">Edit</a>
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                             </form>
                         </td>
                         </tr>
+                        <?php $i++ ?>
                         @empty
                         <div class="alert alert-danger">
                           Data Post belum Tersedia.

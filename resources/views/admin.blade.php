@@ -1,61 +1,103 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 mt-2" style="min-height: 480px">
-              <div class="card">
-                <div class="card-header">
-                  Data Buku
+@extends('layout.template')
+@section('content')
+<main id="main">
+<!-- slider section -->
+{{-- @include('layout.header-admin') --}}
+<section class="slider_section long_section">
+    <div id="customCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="container ">
+            <div class="row">
+              <div class="col-md-5">
+                <div class="detail-box">
+                  <h1>
+                    Perpustakaan <br>
+                  </h1>
+                  <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam itaque ratione amet veniam, magnam, accusantium repellat corporis eveniet unde maxime accusamus delectus cupiditate quibusdam dicta ullam. Illum ratione labore blanditiis perspiciatis nesciunt nulla nam, veritatis ullam esse, architecto, magni inventore.
+                  </p>
+                  <form action="{{ url('logout') }}" method="post">
+                  @csrf
+                  <button type="submit" class="btn btn-sm btn-secondary">Log Out</button>
+                  </form>
+                  <a href="{{ url('/books') }}" class="btn btn-sm btn-primary">Data Buku</a>
+                  {{-- <div class="btn-box">
+                    <a href="" class="btn1">
+                      Log In
+                    </a>
+                    <a href="" class="btn2">
+                      Register
+                    </a>
+                  </div> --}}
                 </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <a href="{{ url('books.create') }}" class="btn btn-primary">Tambah Data</a>
-                    </div>
-                  </div>
-                  {{-- @if ($message = Session::get('success'))
-                      <div class="alert alert-success">
-                        <p>{{ $message }}</p>
-                      </div>
-                  @endif --}}
-                  <div class="row mt-3">
-                    <div class="col">
-                      <table class="table table-bordered table striped">
-                        <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Nama Buku</th>
-                          <th>Penerbit</th>
-                          <th>Aksi</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        @forelse ($books as $book)
-                        <tr>
-                          <td>1</td>
-                          <td class="text-center"></td>
-                          <td>{{ $book->judul }}</td>
-                          <td>Ria SW</td>
-                        </tr>
-                        @empty
-                        <div class="alert alert-danger">
-                          Data Post belum Tersedia.
-                      </div>
-                        @endforelse
-                      </tbody>
-                      </table>
-                    </div>
-                  </div>
+              </div>
+              <div class="col-md-7">
+                <div class="img-box">
+                  <img src="assets/images/perpus.jpeg" align="right" alt="" style="border-radius: 8%; width: 500px; height:400px;" class="mt-3">
                 </div>
               </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-  </body>
-</html>
+  </section>
+  {{-- end section --}}
+
+    <!-- blog section -->
+
+    <section class="blog_section layout_padding">
+        <div class="container">
+          <div class="heading_container">
+            <h2>
+              Daftar Buku
+            </h2>
+          </div>
+          <div class="row">
+            <div class="col-md-3  mx-auto">
+              <div class="card" style="">
+                <img src="assets/images/otr1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Off The Record</b></h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="{{ url('detail-buku') }}" class="btn btn-secondary">Detail</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3  mx-auto">
+              <div class="card" style="">
+                <img src="assets/images/otr2.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Off The Record 2</b></h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-secondary">Detail</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3  mx-auto">
+              <div class="card" style="">
+                <img src="assets/images/otr3.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Off The Record 3</b></h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-secondary">Detail</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3  mx-auto">
+              <div class="card" style="">
+                <img src="assets/images/otr1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Off The Record</b></h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-secondary">Detail</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- end blog section -->
+      @endsection
+    </main>

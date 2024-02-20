@@ -12,49 +12,42 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-header">
-                        Tambah Data Buku
+                        Edit Buku
                     </div>
                     <div class="card-body">
-                        <form action="/books" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('/books', $book->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <label for="form"><b>Judul Buku :</b></label>
-                                <input type="text" class="form-control form-control-xl @error('judul') is-invalid @enderror" placeholder="Judul" name="judul">
+                                <input type="text" class="form-control form-control-xl @error('judul') is-invalid @enderror" placeholder="Judul Buku" name="judul" value="{{ old('judul', $book->judul) }}">
                             </div>
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <label for="form"><b>Penulis Buku :</b></label>
-                                <input type="text" class="form-control form-control-xl @error('penulis') is-invalid @enderror" placeholder="Penulis" name="penulis">
+                                <input type="text" class="form-control form-control-xl @error('penulis') is-invalid @enderror" placeholder="Penulis Buku" name="penulis" value="{{ old('penulis', $book->penulis) }}">
                             </div>
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <label for="form"><b>Penerbit Buku :</b></label>
-                                <input type="text" class="form-control form-control-xl @error('penerbit') is-invalid @enderror" placeholder="Penerbit" name="penerbit">
+                                <input type="text" class="form-control form-control-xl @error('penerbit') is-invalid @enderror" placeholder="Penerbit Buku" name="penerbit" value="{{ old('penerbit', $book->penerbit) }}">
                             </div>
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <label for="exampleFormControlTextarea1" class="form-label"><b>Deskripsi :</b></label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="deskripsi"></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="deskripsi" value="{{ old('deskripsi', $book->deskripsi) }}"></textarea>
                             </div>
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <label for="form"><b>Tahun Terbit :</b></label>
-                                <input type="text" class="form-control form-control-xl @error('tahun_terbit') is-invalid @enderror" placeholder="Tahun Terbit" name="tahun_terbit">
+                                <input type="text" class="form-control form-control-xl @error('tahun_terbit') is-invalid @enderror" placeholder="Tahun Terbit" name="tahun_terbit" value="{{ old('tahun_terbit', $book->tahun_terbit) }}">
                             </div>
-                            <div class="mb-3">
+                            <div class="form-group position-relative has-icon-left mb-4">
                                 <label for="formFile" class="form-label">Default file input example</label>
                                 <input class="form-control" type="file" id="formFile" name="image">
                             </div>
-                            {{-- <div class="mb-3">
-                                <label for="kategori" class="form-label">Default file input example</label>
-                                <input class="form-control" type="file" id="formFile" name="image">
-                            </div> --}}
-                            {{-- <select class="form-select" aria-label="Default select example" name="id_kategori">
-                                <option selected>Open this select menu</option>
-                                @foreach ($kategoris as $kategori)
-                                <option value="{{ $kategori->id_kategori }}">{{ $kategori->nama_kategori }}</option>
-                                @endforeach
-                              </select> --}}
 
-                                <button type="submit" class="btn btn-outline-primary btn-sm">Tambah</button>
+                            <div>
+                                <button type="submit" class="btn btn-outline-primary btn-sm">Update</button>
                                 <button type="reset" class="btn btn-outline-warning btn-sm">Reset</button>
-                            
+                            </div>
+
                         </form>
                     </div>
                 </div>

@@ -34,10 +34,17 @@ class KategoriController extends Controller
             return redirect('kategoris')->with(['success' => 'Data Berhasil Disimpan']);
     }
 
+    public function show(string $id_kategori): View
+    {
+        $kategori = Kategori::where('id_kategori',$id_kategori);
+
+        return view('kategori.show', compact('kategoris'));
+    }
+
     public function edit(string $id_kategori): View
     {
-        $kategori = Kategori::findOrFail($id_kategori);
-        return view('kategori.edit', compact('kategoris'));
+        $kategori = Kategori::where('id_kategori',$id_kategori)->first();
+        return view('kategori.edit', compact('kategori'));
     }
 
     public function update(Request $request, $id_kategori): RedirectResponse

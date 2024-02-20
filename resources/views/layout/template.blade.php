@@ -33,6 +33,7 @@
 
 <body>
     @include('layout.header')
+    {{-- @include('layout.header-admin') --}}
     @yield('content')
     @include('layout.footer')
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

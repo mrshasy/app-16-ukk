@@ -16,6 +16,10 @@
                   <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam itaque ratione amet veniam, magnam, accusantium repellat corporis eveniet unde maxime accusamus delectus cupiditate quibusdam dicta ullam. Illum ratione labore blanditiis perspiciatis nesciunt nulla nam, veritatis ullam esse, architecto, magni inventore.
                   </p>
+                  <form action="{{ url('logout') }}" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn-sm btn-secondary">Log Out</button>
+                    </form>
                   {{-- <div class="btn-box">
                     <a href="" class="btn1">
                       Log In
@@ -55,7 +59,7 @@
                 <div class="card-body">
                   <h5 class="card-title"><b>Off The Record</b></h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-secondary">Detail</a>
+                  <a href="{{ url('detail-buku') }}" class="btn btn-secondary">Detail</a>
                 </div>
               </div>
             </div>

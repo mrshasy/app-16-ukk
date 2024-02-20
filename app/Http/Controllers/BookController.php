@@ -40,8 +40,9 @@ class BookController extends Controller
                 'judul' => 'required',
                 'penulis' => 'required',
                 'penerbit' => 'required',
-                'deskripsi' => 'required',
-                'tahun_terbit' => 'required'
+                'tahun_terbit' => 'required',
+                'image' => 'required',
+               
             ]);
 
             $image = $request->file('image');
@@ -83,7 +84,8 @@ class BookController extends Controller
     public function show(string $id): View
     {
         $books = Book::findOrFail($id);
-        return view('books.show', compact('books'));
+
+        return view('books.show', compact('book'));
     }
 
     /**
@@ -91,24 +93,50 @@ class BookController extends Controller
      */
     public function edit(string $id): View
     {
-        $books = Book::findOrFail($id);
-        return view('books.edit', compact('books'));
+        $book = Book::findOrFail($id);
+        return view('books.edit', compact('book'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id): RedirectResponse
     {
         $this->validate($request, [
             'judul' => 'required',
             'penulis' => 'required',
             'penerbit' => 'required',
-            'deskripsi' => 'required',
+            'deskripsi' => 'nullable',
             'tahun_terbit' => 'required'
         ]);
+        
+        $book = Book::findOrFail($id);
+        // dd($book);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $image->storeAs('public/storage',  $image->hashName());
 
-        $kategori = Kategori::findOrFail($id);
+            Storage::delete('public/storage'.$book->image);
+
+            $book->update([
+                'judul' => $request->judul,
+                'penulis' => $request->penulis,
+                'penerbit' => $request->penerbit,
+                'deskripsi' => $request->deskripsi,
+                'tahun_terbit' => $request->tahun_terbit,
+                'image' => $image->hashName()
+            ]);
+        } else {
+            $book->update([
+                'judul' => $request->judul,
+                'penulis' => $request->penulis,
+                'penerbit' => $request->penerbit,
+                'deskripsi' => $request->deskripsi,
+                'tahun_terbit' => $request->tahun_terbit,
+            ]);
+        }
+
+        return redirect('books')->with(['success' => 'Data Berhasil Dihapus']);
     }
 
     /**

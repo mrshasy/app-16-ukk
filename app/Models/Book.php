@@ -17,4 +17,9 @@ class Book extends Model
         'tahun_terbit',
         'image',
     ];
+
+    public function buku()
+    {
+        return $this->belongsTo(Kategori::class);
+    }
 }

@@ -11,16 +11,11 @@
         <div class="row">
             <div class="col-lg-12 mt-2">
               <div class="card-header">
-                <b>Detail Buku</b>
+                <b>Kategori Buku</b>
               </div>
               <div class="card-border-0 shadow-sm rounded">
                 <div class="card-body">
-                    <img src="{{ public('storage/storage'.$post->image) }}" class="w-50 rounded">
-                    <hr>
-                    <h3>{{ $books->judul }}</h3>
-                    <h5>{{ $books->penulis }}</h5>
-                    <h5>{{ $books->penerbit }}</h5>
-                    <p>{{ $books->deskripsi }}</p>
+                    
                 </div>
               </div>
             </div>

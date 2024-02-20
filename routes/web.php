@@ -24,26 +24,42 @@ Route::post('/register/add', [RegisterController::class, 'registerAction']);
 Route::get('/login', [LoginController::class, 'login']);
 Route::post('/login', [LoginController::class, 'loginAction']);
 
+Route::post('/logout', [LoginController::class, 'logout'])->name('auth.logout');
+
 Route::get('/admin', [DashboardController::class, 'admin'])->middleware('auth');
 Route::get('/petugas', [DashboardController::class, 'petugas'])->middleware('auth');
 Route::get('/peminjam', [DashboardController::class, 'peminjam'])->middleware('auth');
 
 // Route::resource('/books', [BookController::class]);
 Route::get('/books', [BookController::class, 'index']);
+Route::get('/books/edit/{id}', [BookController::class, 'edit']);
 Route::post('/books', [BookController::class, 'store']);
+// Route::post('/books/{id}', [BookController::class, 'show']);
+Route::put('/books/{id}', [BookController::class, 'update']);
 Route::delete('/books/{id}', [BookController::class, 'destroy'])->name('books.destroy');
 
 Route::get('/kategoris', [KategoriController::class, 'index']);
+Route::get('/kategoris/edit/{id_kategori}', [KategoriController::class, 'edit']);
 Route::post('/kategoris', [KategoriController::class, 'store']);
-Route::put('/kategoris', [KategoriController::class, 'update']);
+Route::put('/kategoris/{id}', [KategoriController::class, 'update']);
 Route::delete('/kategoris/{id_kategori}', [KategoriController::class, 'destroy'])->name('kategoris.destroy');
+
+// Route::group('middleware'=>['auth', ]);
 
 Route::get('/kategori.create', function () {
     return view('kategori.create');
 });
 
+Route::get('/kategori.edit', function () {
+    return view('kategori.edit');
+});
+
 Route::get('/kategori.index', function () {
     return view('kategori.index');
+});
+
+Route::get('/detail-buku', function () {
+    return view('detail-buku');
 });
 
 Route::get('/', function () {

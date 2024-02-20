@@ -12,10 +12,10 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-header">
-                        Tambah Kategori Buku
+                        Edit Kategori Buku
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('kategoris.update', ['id_kategori' => $kategori->id_kategori]) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('/kategoris/'.$kategori->id_kategori) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="form-group position-relative has-icon-left mb-4">
@@ -27,7 +27,7 @@
                                 <button type="submit" class="btn btn-outline-primary btn-sm">Update</button>
                                 <button type="reset" class="btn btn-outline-warning btn-sm">Reset</button>
                             </div>
-                            
+
                         </form>
                     </div>
                 </div>
