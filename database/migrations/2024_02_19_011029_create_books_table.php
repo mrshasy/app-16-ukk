@@ -20,7 +20,7 @@ return new class extends Migration
             $table->year('tahun_terbit');
             $table->string('image');
             $table->integer('stok');
-            $table->enum('kategori', ['comedy', 'fantasy', 'horror']);
+            // $table->enum('kategori', ['comedy', 'fantasy', 'horror']);
             $table->timestamps();
         });
     }

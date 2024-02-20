@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -30,7 +31,20 @@ Route::get('/peminjam', [DashboardController::class, 'peminjam'])->middleware('a
 // Route::resource('/books', [BookController::class]);
 Route::get('/books', [BookController::class, 'index']);
 Route::post('/books', [BookController::class, 'store']);
-Route::delete('/books', [BookController::class, 'destroy']);
+Route::delete('/books/{id}', [BookController::class, 'destroy'])->name('books.destroy');
+
+Route::get('/kategoris', [KategoriController::class, 'index']);
+Route::post('/kategoris', [KategoriController::class, 'store']);
+Route::put('/kategoris', [KategoriController::class, 'update']);
+Route::delete('/kategoris/{id_kategori}', [KategoriController::class, 'destroy'])->name('kategoris.destroy');
+
+Route::get('/kategori.create', function () {
+    return view('kategori.create');
+});
+
+Route::get('/kategori.index', function () {
+    return view('kategori.index');
+});
 
 Route::get('/', function () {
     return view('welcome');

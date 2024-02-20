@@ -11,12 +11,12 @@
             <div class="col-lg-12 mt-2" style="min-height: 480px">
               <div class="card">
                 <div class="card-header">
-                  Data Buku
+                  Data Kategori Buku
                 </div>
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <a href="{{ url('books.create') }}" class="btn btn-primary">Tambah Data</a>
+                      <a href="{{ url('kategori.create') }}" class="btn btn-primary">Tambah Data</a>
                     </div>
                   </div>
                   {{-- @if ($message = Session::get('success'))
@@ -30,30 +30,22 @@
                         <thead>
                         <tr>
                           <th>No</th>
-                          <th>Judul Buku</th>
-                          <th>Penulis</th>
-                          <th>Penerbit</th>
-                          <th>Deskripsi</th>
-                          <th>Tahun Terbit</th>
-                          <th>Image</th>
+                          <th>Kategori Buku</th>
                           <th>Aksi</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @forelse ($books as $book)
+                        @forelse ($kategoris as $kategori)
                         <tr>
                           <td>1</td>
                           {{-- <td class="text-center"></td> --}}
-                          <td>{{ $book->judul }}</td>
-                          <td>{{ $book->penulis }}</td>
-                          <td>{{ $book->penerbit }}</td>
-                          <td>{{ $book->deskripsi }}</td>
-                          <td>{{ $book->tahun_terbit }}</td>
+                          <td>{{ $kategori->nama_kategori }}</td>
                         {{-- <td class="text-center">
                             <img src="{{ storage('/storage'.$post->image) }}" class="rounded" style="width: 100px">
                         </td> --}}
                         <td class="text-center">
-                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('books.destroy', $book->id) }}" method="post">
+                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('kategoris.destroy', ['id_kategori' => $kategori->id_kategori]) }}" method="post">
+                            <a href="{{ url('kategori.edit', $kategori->id_kategori) }}" class="btn btn-sm btn-secondary">Edit</a>
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
@@ -67,6 +59,7 @@
                         @endforelse
                       </tbody>
                       </table>
+                      {!! $kategoris->links() !!}
                     </div>
                   </div>
                 </div>

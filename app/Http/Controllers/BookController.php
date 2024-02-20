@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Kategori;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -36,7 +37,11 @@ class BookController extends Controller
     {
 
             $this->validate($request, [
-                'judul' => 'required'
+                'judul' => 'required',
+                'penulis' => 'required',
+                'penerbit' => 'required',
+                'deskripsi' => 'required',
+                'tahun_terbit' => 'required'
             ]);
 
             $image = $request->file('image');
@@ -50,7 +55,7 @@ class BookController extends Controller
                 'tahun_terbit' => $request->tahun_terbit,
                 'image' => $image->hashName(),
             ]);
-            return redirect('admin')->with(['success' => 'Data Berhasil Disimpan']);
+            return redirect('books')->with(['success' => 'Data Berhasil Disimpan']);
             // return redirect()->route('/admin')->with(['success' => 'Data Berhasil Disimpan']);
 
         // $request->validate([
@@ -93,22 +98,30 @@ class BookController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    // public function update(Request $request, $id): RedirectResponse
-    // {
-    //     $this->
-    // }
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'judul' => 'required',
+            'penulis' => 'required',
+            'penerbit' => 'required',
+            'deskripsi' => 'required',
+            'tahun_terbit' => 'required'
+        ]);
+
+        $kategori = Kategori::findOrFail($id);
+    }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy($id): RedirectResponse
     {
-        $books = Book::findOrFail($id);
+        $book = Book::findOrFail($id);
 
-        Storage::delete('public/storage/'. $books->image);
+        Storage::delete('public/storage/'. $book->image);
 
-        $books->delete();
+        $book->delete();
 
-        return redirect('ind')->with(['success' => 'Data Berhasil Dihapus']);
+        return redirect('books')->with(['success' => 'Data Berhasil Dihapus']);
     }
 }
