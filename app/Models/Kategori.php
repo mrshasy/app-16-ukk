@@ -13,8 +13,8 @@ class Kategori extends Model
         'nama_kategori'
     ];
 
-    public function kategori()
-    {
-        return $this->hasMany(Book::class);
-    }
+    // public function book()
+    // {
+    //     return $this->hasMany(Book::class);
+    // }
 }

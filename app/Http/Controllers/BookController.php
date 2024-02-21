@@ -17,7 +17,7 @@ class BookController extends Controller
      */
     public function index(): View
     {
-        $books = Book::latest()->paginate(5);
+        $books = Book::latest()->paginate(10);
 
         return view('books.index', compact('books'));
     }
@@ -27,6 +27,7 @@ class BookController extends Controller
      */
     public function create(): View
     {
+        // $kategoris = Kategori::all();
         return view('books.create');
     }
 
@@ -56,6 +57,7 @@ class BookController extends Controller
                 'tahun_terbit' => $request->tahun_terbit,
                 'image' => $image->hashName(),
             ]);
+
             return redirect('books')->with(['success' => 'Data Berhasil Disimpan']);
             // return redirect()->route('/admin')->with(['success' => 'Data Berhasil Disimpan']);
 

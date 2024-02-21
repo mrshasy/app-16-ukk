@@ -69,7 +69,7 @@
                 <div class="card-body">
                   <h5 class="card-title"><b>Off The Record 2</b></h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-secondary">Detail</a>
+                  <a href="{{ url('detail-buku-2') }}" class="btn btn-secondary">Detail</a>
                 </div>
               </div>
             </div>
@@ -79,7 +79,7 @@
                 <div class="card-body">
                   <h5 class="card-title"><b>Off The Record 3</b></h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-secondary">Detail</a>
+                  <a href="{{ url('detail-buku-3') }}" class="btn btn-secondary">Detail</a>
                 </div>
               </div>
             </div>
@@ -89,7 +89,7 @@
                 <div class="card-body">
                   <h5 class="card-title"><b>Off The Record</b></h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-secondary">Detail</a>
+                  <a href="{{ url('detail-buku') }}" class="btn btn-secondary">Detail</a>
                 </div>
               </div>
             </div>

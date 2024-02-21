@@ -54,13 +54,13 @@
                             <img src="{{ url('/storage/storage/'. $book->image) }}" class="rounded" style="width: 100px">
                             {{-- <img src="assets/images/otr1.jpg" class="w-20 rounded" style="height: 20rem" > --}}
                         </td>
-                        <td class="text-center">
+                        <td class="text-center mt-5">
                             <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('books.destroy', $book->id) }}" method="post">
                               {{-- <a href="{{ url('/books/show/'.$book->id) }}" class="btn btn-sm btn-primary">Show</a> --}}
-                              <a href="{{ url('/books/edit/'.$book->id) }}" class="btn btn-sm btn-secondary">Edit</a>
+                              <a href="{{ url('/books/edit/'.$book->id) }}" class="btn btn-sm btn-secondary mt-5">Edit</a>
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                            <button type="submit" class="btn btn-sm btn-danger mt-5">Hapus</button>
                             </form>
                         </td>
                         </tr>
@@ -68,7 +68,7 @@
                         @empty
                         <div class="alert alert-danger">
                           Data Buku belum Tersedia.
-                      </div>
+                      </div>     
                         @endforelse
                       </tbody>
                       </table>

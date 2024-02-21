@@ -18,8 +18,8 @@ class Book extends Model
         'image',
     ];
 
-    public function buku()
-    {
-        return $this->belongsTo(Kategori::class);
-    }
+    // public function kategori()
+    // {
+    //     return $this->belongsTo(Kategori::class);
+    // }
 }

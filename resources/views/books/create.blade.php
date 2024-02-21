@@ -45,6 +45,15 @@
                                 <label for="kategori" class="form-label">Default file input example</label>
                                 <input class="form-control" type="file" id="formFile" name="image">
                             </div> --}}
+                            {{-- <div class="form-group">
+                                <label for="kategori-option">Kategori</label>
+                                <select class="form-control" id="kategori-option" name="id_kategori">
+                                   @foreach ($kategoris as $kategori)
+                                      <option value="{{ $kategori->id_kategori }}">{{ $kategori->nama_kategori }}</option>
+                                   @endforeach
+                                </select>
+                             </div> --}}
+
                             {{-- <select class="form-select" aria-label="Default select example" name="id_kategori">
                                 <option selected>Open this select menu</option>
                                 @foreach ($kategoris as $kategori)

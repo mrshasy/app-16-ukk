@@ -58,6 +58,14 @@ Route::get('/kategori.index', function () {
     return view('kategori.index');
 });
 
+Route::get('/detail-buku-2', function () {
+    return view('detail-buku-2');
+});
+
+Route::get('/detail-buku-3', function () {
+    return view('detail-buku-3');
+});
+
 Route::get('/detail-buku', function () {
     return view('detail-buku');
 });
@@ -90,10 +98,10 @@ Route::get('/peminjam', function () {
     return view('peminjam');
 });
 
-Route::get('/admin/petugas', function () {
-    return view('admin-petugas');
-});
+// Route::get('/admin/petugas', function () {
+//     return view('admin-petugas');
+// });
 
-Route::get('/admin/peminjam', function () {
-    return view('admin-peminjam');
-});
+// Route::get('/admin/peminjam', function () {
+//     return view('admin-peminjam');
+// });
