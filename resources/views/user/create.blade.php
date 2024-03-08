@@ -19,7 +19,7 @@
                             @csrf
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <label for="name"><b>Nama :</b></label>
-                                <input type="text" class="form-control form-control-xl @error('name') is-invalid @enderror" placeholder="Nama Kategori" name="name" id="name">
+                                <input type="text" class="form-control form-control-xl @error('name') is-invalid @enderror" placeholder="Nama" name="name" id="name">
                             </div>
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <label for="email"><b>Email :</b></label>

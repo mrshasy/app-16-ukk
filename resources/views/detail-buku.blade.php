@@ -9,15 +9,17 @@
   <body>
     <div class="container">
         <div class="row">
+          <div class="card-header">
             <div class="col-lg-12 mt-2">
-              <div class="card-header">
                 <b>Detail Buku</b>
               </div>
               <div class="card-border-0 shadow-sm rounded">
                 <div class="card-body">
                     <img src="assets/images/otr1.jpg" class="w-20 rounded" style="height: 20rem">
-                    <h3>Off The Record</h3>
-                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="col-lg-9">
+                      <h3>Off The Record</h3>
+                      <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
                 </div>
               </div>
             </div>

@@ -42,7 +42,6 @@
                                 <label for="formFile" class="form-label">Default file input example</label>
                                 <input class="form-control" type="file" id="formFile" name="image">
                             </div>
-
                             <div>
                                 <button type="submit" class="btn btn-outline-primary btn-sm">Update</button>
                                 <button type="reset" class="btn btn-outline-warning btn-sm">Reset</button>

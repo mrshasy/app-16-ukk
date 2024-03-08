@@ -15,6 +15,14 @@ class BookController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    public function list(): View
+    {
+        $books = Book::latest()->paginate(5);
+        // dd($books);
+        return view('peminjam', compact('books'));
+    }
+
     public function index(): View
     {
         $books = Book::latest()->paginate(10);
@@ -115,7 +123,7 @@ class BookController extends Controller
             'penerbit' => 'required',
             'deskripsi' => 'nullable',
             'tahun_terbit' => 'required',
-            'stok' => 'required'
+            // 'stok' => 'required'
         ]);
 
         $book = Book::findOrFail($id);
@@ -133,7 +141,7 @@ class BookController extends Controller
                 'deskripsi' => $request->deskripsi,
                 'tahun_terbit' => $request->tahun_terbit,
                 'image' => $image->hashName(),
-                'stok' => $request->stok
+                // 'stok' => $request->stok,
             ]);
         } else {
             $book->update([
@@ -142,11 +150,11 @@ class BookController extends Controller
                 'penerbit' => $request->penerbit,
                 'deskripsi' => $request->deskripsi,
                 'tahun_terbit' => $request->tahun_terbit,
-                'stok' => $request->stok,
+                // 'stok' => $request->stok,
             ]);
         }
 
-        return redirect('books')->with(['success' => 'Data Berhasil Dihapus']);
+        return redirect('books')->with(['success' => 'Data Berhasil Diupdate']);
     }
 
     /**

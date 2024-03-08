@@ -38,6 +38,8 @@ Route::resource('/books', BookController::class);
 
 Route::resource('/peminjaman', PeminjamanController::class);
 
+Route::get('/peminjam', [BookController::class, 'list']);
+
 // Route::get('/peminjaman/cetak_pdf', 'PeminjamanController@cetak_pdf');
 
 
@@ -115,9 +117,9 @@ Route::get('/petugas', function () {
     return view('petugas');
 });
 
-Route::get('/peminjam', function () {
-    return view('peminjam');
-});
+// Route::get('/peminjam', function () {
+//     return view('peminjam');
+// });
 
 // Route::get('/admin/petugas', function () {
 //     return view('admin-petugas');

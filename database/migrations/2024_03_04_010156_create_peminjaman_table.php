@@ -33,6 +33,7 @@ return new class extends Migration
         END;
         ');
 
+
         DB::unprepared('
         CREATE TRIGGER max_stock
         AFTER UPDATE ON peminjaman

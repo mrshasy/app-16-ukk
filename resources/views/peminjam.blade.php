@@ -53,46 +53,17 @@
             </h2>
           </div>
           <div class="row">
+            @foreach ( $books as $item )
             <div class="col-md-3  mx-auto">
               <div class="card" style="">
-                <img src="assets/images/otr1.jpg" class="card-img-top" alt="...">
+                <img src="{{ asset('/storage/storage/'.$item->image) }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title"><b>Off The Record</b></h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h5 class="card-title"><b>{{ $item->judul }}</b></h5>
                   <a href="{{ url('detail-buku') }}" class="btn btn-secondary">Detail</a>
                 </div>
               </div>
             </div>
-            <div class="col-md-3  mx-auto">
-              <div class="card" style="">
-                <img src="assets/images/otr2.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"><b>Off The Record 2</b></h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="{{ url('detail-buku-2') }}" class="btn btn-secondary">Detail</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3  mx-auto">
-              <div class="card" style="">
-                <img src="assets/images/otr3.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"><b>Off The Record 3</b></h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="{{ url('detail-buku-3') }}" class="btn btn-secondary">Detail</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3  mx-auto">
-              <div class="card" style="">
-                <img src="assets/images/otr1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"><b>Off The Record</b></h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="{{ url('detail-buku') }}" class="btn btn-secondary">Detail</a>
-                </div>
-              </div>
-            </div>
+            @endforeach
           </div>
         </div>
       </section>
