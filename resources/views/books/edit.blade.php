@@ -15,7 +15,7 @@
                         Edit Buku
                     </div>
                     <div class="card-body">
-                        <form action="{{ url('/books', $book->id) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('books/' . $book->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="form-group position-relative has-icon-left mb-4">

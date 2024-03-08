@@ -17,6 +17,7 @@
                   <div class="row">
                     <div class="col">
                       <a href="{{ url('kategori.create') }}" class="btn btn-primary">Tambah Data</a>
+                      <a href="{{ url('admin') }}" class="btn btn-secondary">Kembali</a>
                     </div>
                   </div>
                   {{-- @if ($message = Session::get('success'))

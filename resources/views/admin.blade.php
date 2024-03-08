@@ -1,5 +1,6 @@
 @extends('layout.template')
 @section('content')
+@include('layout.sidebar')
 <main id="main">
 <!-- slider section -->
 {{-- @include('layout.header-admin') --}}
@@ -12,7 +13,7 @@
               <div class="col-md-5">
                 <div class="detail-box">
                   <h1>
-                    Perpustakaan <br>
+                   <b>Halaman Admin</b> <br>
                   </h1>
                   <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam itaque ratione amet veniam, magnam, accusantium repellat corporis eveniet unde maxime accusamus delectus cupiditate quibusdam dicta ullam. Illum ratione labore blanditiis perspiciatis nesciunt nulla nam, veritatis ullam esse, architecto, magni inventore.
@@ -20,7 +21,7 @@
                   <form action="{{ url('logout') }}" method="post">
                   @csrf
                   <button type="submit" class="btn btn-sm btn-secondary">Log Out</button>
-                  <a href="{{ url('/books') }}" class="btn btn-sm btn-primary">Data Buku</a>
+                  {{-- <a href="{{ url('/books') }}" class="btn btn-sm btn-primary">Data Buku</a> --}}
                   </form>
                   {{-- <div class="btn-box">
                     <a href="" class="btn1">
@@ -34,7 +35,7 @@
               </div>
               <div class="col-md-7">
                 <div class="img-box">
-                  <img src="assets/images/perpus.jpeg" align="right" alt="" style="border-radius: 8%; width: 500px; height:400px;" class="mt-3">
+                  <img src="assets/images/perpus.jpeg" align="right" alt="" style="border-radius: 8%; width: 400px; height:350px;" class="mt-3">
                 </div>
               </div>
             </div>
@@ -47,7 +48,7 @@
 
     <!-- blog section -->
 
-    <section class="blog_section layout_padding">
+    {{-- <section class="blog_section layout_padding">
         <div class="container">
           <div class="heading_container">
             <h2>
@@ -97,7 +98,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> --}}
       <!-- end blog section -->
       @endsection
     </main>

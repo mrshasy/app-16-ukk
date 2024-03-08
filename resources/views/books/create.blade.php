@@ -21,6 +21,14 @@
                                 <label for="form"><b>Judul Buku :</b></label>
                                 <input type="text" class="form-control form-control-xl @error('judul') is-invalid @enderror" placeholder="Judul" name="judul">
                             </div>
+                            <div class="form-group mb-4">
+                                <label for="id_kategori"><b>Kategori :</b></label>
+                                <select class="form-control" id="id_kategori" name="id_kategori">
+                                   @foreach ($kategoris as $kategori)
+                                      <option value="{{ $kategori->id_kategori }}">{{ $kategori->nama_kategori }}</option>
+                                   @endforeach 
+                                </select>
+                             </div>
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <label for="form"><b>Penulis Buku :</b></label>
                                 <input type="text" class="form-control form-control-xl @error('penulis') is-invalid @enderror" placeholder="Penulis" name="penulis">
@@ -38,22 +46,17 @@
                                 <input type="text" class="form-control form-control-xl @error('tahun_terbit') is-invalid @enderror" placeholder="Tahun Terbit" name="tahun_terbit">
                             </div>
                             <div class="mb-3">
-                                <label for="formFile" class="form-label">Default file input example</label>
+                                <label for="formFile" class="form-label"><b>Gambar :</b></label>
                                 <input class="form-control" type="file" id="formFile" name="image">
+                            </div>
+                            <div class="form-group position-relative has-icon-left mb-4">
+                                <label for="form"><b>Stok :</b></label>
+                                <input type="text" class="form-control form-control-xl @error('stok') is-invalid @enderror" placeholder="Stok" id="stok" name="stok">
                             </div>
                             {{-- <div class="mb-3">
                                 <label for="kategori" class="form-label">Default file input example</label>
                                 <input class="form-control" type="file" id="formFile" name="image">
                             </div> --}}
-                            {{-- <div class="form-group">
-                                <label for="kategori-option">Kategori</label>
-                                <select class="form-control" id="kategori-option" name="id_kategori">
-                                   @foreach ($kategoris as $kategori)
-                                      <option value="{{ $kategori->id_kategori }}">{{ $kategori->nama_kategori }}</option>
-                                   @endforeach
-                                </select>
-                             </div> --}}
-
                             {{-- <select class="form-select" aria-label="Default select example" name="id_kategori">
                                 <option selected>Open this select menu</option>
                                 @foreach ($kategoris as $kategori)

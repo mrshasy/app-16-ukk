@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,7 +17,8 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <a href="{{ url('books.create') }}" class="btn btn-primary">Tambah Data</a>
+                      <a href="{{ url('books/create') }}" class="btn btn-primary">Tambah Data</a>
+                      <a href="{{ url('admin') }}" class="btn btn-secondary">Kembali</a>
                     </div>
                   </div>
                   {{-- @if ($message = Session::get('success'))
@@ -31,6 +33,7 @@
                         <tr>
                           <th scope="col">No</th>
                           <th scope="col">Judul Buku</th>
+                          <th scope="col">Kategori</th>
                           <th scope="col">Penulis</th>
                           <th scope="col">Penerbit</th>
                           <th scope="col">Deskripsi</th>
@@ -46,6 +49,7 @@
                           <td>{{ $i }}</td>
                           {{-- <td class="text-center"></td> --}}
                           <td>{{ $book->judul }}</td>
+                          <td>{{ $book->kategori->nama_kategori }}</td>
                           <td>{{ $book->penulis }}</td>
                           <td>{{ $book->penerbit }}</td>
                           <td>{{ $book->deskripsi }}</td>
@@ -57,10 +61,10 @@
                         <td class="text-center mt-5">
                             <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('books.destroy', $book->id) }}" method="post">
                               {{-- <a href="{{ url('/books/show/'.$book->id) }}" class="btn btn-sm btn-primary">Show</a> --}}
-                              <a href="{{ url('/books/edit/'.$book->id) }}" class="btn btn-sm btn-secondary mt-5">Edit</a>
+                              <a href="{{ url('books/'.$book->id . '/edit') }}" class="btn btn-sm btn-secondary mt-3 mb-3">Edit</a>
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger mt-5">Hapus</button>
+                            <button type="submit" class="btn btn-sm btn-danger mt-3 mb-3">Hapus</button>
                             </form>
                         </td>
                         </tr>

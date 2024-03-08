@@ -27,8 +27,9 @@ class BookController extends Controller
      */
     public function create(): View
     {
-        // $kategoris = Kategori::all();
-        return view('books.create');
+        $kategoris = Kategori::all();
+        // dd($kategoris);
+        return view('books.create', compact('kategoris'));
     }
 
     /**
@@ -37,29 +38,33 @@ class BookController extends Controller
     public function store(Request $request): RedirectResponse
     {
 
-            $this->validate($request, [
-                'judul' => 'required',
-                'penulis' => 'required',
-                'penerbit' => 'required',
-                'tahun_terbit' => 'required',
-                'image' => 'required',
-               
-            ]);
+        $this->validate($request, [
+            'judul' => 'required',
+            'penulis' => 'required',
+            'penerbit' => 'required',
+            'deskripsi' => 'required',
+            'id_kategori' => 'required',
+            'tahun_terbit' => 'required',
+            'image' => 'required',
+            'stok' => 'required'
+        ]);
 
-            $image = $request->file('image');
-            $image->storeAs('public/storage', $image->hashName());
+        $image = $request->file('image');
+        $image->storeAs('public/storage', $image->hashName());
 
-            Book::create([
-                'judul' => $request->judul,
-                'penulis' => $request->penulis,
-                'penerbit' => $request->penerbit,
-                'deskripsi' => $request->deskripsi,
-                'tahun_terbit' => $request->tahun_terbit,
-                'image' => $image->hashName(),
-            ]);
+        Book::create([
+            'judul' => $request->judul,
+            'penulis' => $request->penulis,
+            'penerbit' => $request->penerbit,
+            'deskripsi' => $request->deskripsi,
+            'tahun_terbit' => $request->tahun_terbit,
+            'image' => $image->hashName(),
+            'id_kategori' => $request->id_kategori,
+            'stok' => $request->stok,
+        ]);
 
-            return redirect('books')->with(['success' => 'Data Berhasil Disimpan']);
-            // return redirect()->route('/admin')->with(['success' => 'Data Berhasil Disimpan']);
+        return redirect('books')->with(['success' => 'Data Berhasil Disimpan']);
+        // return redirect()->route('/admin')->with(['success' => 'Data Berhasil Disimpan']);
 
         // $request->validate([
         //     'judul' => 'required',
@@ -109,16 +114,17 @@ class BookController extends Controller
             'penulis' => 'required',
             'penerbit' => 'required',
             'deskripsi' => 'nullable',
-            'tahun_terbit' => 'required'
+            'tahun_terbit' => 'required',
+            'stok' => 'required'
         ]);
-        
+
         $book = Book::findOrFail($id);
         // dd($book);
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $image->storeAs('public/storage',  $image->hashName());
 
-            Storage::delete('public/storage'.$book->image);
+            Storage::delete('public/storage' . $book->image);
 
             $book->update([
                 'judul' => $request->judul,
@@ -126,7 +132,8 @@ class BookController extends Controller
                 'penerbit' => $request->penerbit,
                 'deskripsi' => $request->deskripsi,
                 'tahun_terbit' => $request->tahun_terbit,
-                'image' => $image->hashName()
+                'image' => $image->hashName(),
+                'stok' => $request->stok
             ]);
         } else {
             $book->update([
@@ -135,6 +142,7 @@ class BookController extends Controller
                 'penerbit' => $request->penerbit,
                 'deskripsi' => $request->deskripsi,
                 'tahun_terbit' => $request->tahun_terbit,
+                'stok' => $request->stok,
             ]);
         }
 
@@ -148,7 +156,7 @@ class BookController extends Controller
     {
         $book = Book::findOrFail($id);
 
-        Storage::delete('public/storage/'. $book->image);
+        Storage::delete('public/storage/' . $book->image);
 
         $book->delete();
 

@@ -16,10 +16,11 @@ return new class extends Migration
             $table->string('judul');
             $table->string('penulis');
             $table->string('penerbit');
-            $table->text('deskripsi');
+            $table->text('deskripsi')->nullable();
             $table->year('tahun_terbit');
             $table->string('image');
-            $table->integer('stok');
+            $table->integer('stok')->nullable();
+            $table->foreignId('id_kategori');
             // $table->enum('kategori', ['comedy', 'fantasy', 'horror']);
             $table->timestamps();
         });
